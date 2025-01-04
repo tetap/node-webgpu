@@ -5,6 +5,25 @@ This is a script to bundle/package dawn.node and hopefully publish it on npm
 [Dawn](https://dawn.googlesource.com/dawn) is an implementation of [WebGPU](https://gpuweb.github.io/gpuweb/).
 It includes a node plugin and this repo builds that plugin.
 
+# Usage
+
+TDB
+
+Note: This package provides a WebGPU implementation it node. That said, if you are making a webpage
+and are considering using this for testing, you'd probably be better off using puppeteer. You can
+find an example of using puppeteer for testing WebGPU in [this repo](https://github.com/greggman/webgpu-debug-helper).
+
+This package is for WebGPU in node. It provides WebGPU in node. But it doesn't not provide integration
+with the web platform. For example, importing video via `HTMLVideoElement` or `VideoFrame`. It doesn't
+provide a way to copy an `HTMLImageElement` to a texture. It also doesn't provide a way to render to an
+`HTMLCanvasElement`. All of those only exist in the browser, not in node.
+
+I suspect you could provide many of those with polyfills without changing this repo but I have not
+looked into it.
+
+What you can do is render to textures and then read them back. You can also run compute shaders
+and read their results.
+
 # Updating
 
 This updates to the latest dawn and depot_tools

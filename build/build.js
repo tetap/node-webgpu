@@ -44,6 +44,7 @@ async function buildDawnNode() {
       dawnPath,
       ...addElemIf(!isWin, '-GNinja'),
       '-DDAWN_BUILD_NODE_BINDINGS=1',
+      '-DDAWN_USE_X11=OFF',
       ...addElemIf(isMac, '-DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk'),
     ]);
     if (isWin) {
