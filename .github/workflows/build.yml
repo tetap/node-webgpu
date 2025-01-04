@@ -47,6 +47,9 @@ jobs:
         with:
           node-version: '20.x'
 
+      - name: Use Go
+        uses: actions/setup-go@v5
+
       - name: Print env
         run: |
           echo github.event.action: ${{ github.event.action }}
