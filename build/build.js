@@ -48,7 +48,7 @@ async function buildDawnNode() {
       ...addElemIf(isMac, '-DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk'),
     ]);
     if (isWin) {
-      await execute('cmake', ['--build', '.', '-target', 'dawn.node'])
+      await execute('cmake', ['--build', '.', '--target', 'dawn.node'])
     } else {
       await execute('ninja', ['dawn.node']);
     }
