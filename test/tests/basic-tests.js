@@ -1,7 +1,12 @@
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 
-const { create, globals } = require(`${process.cwd()}/third_party/dawn/out/cmake-release/dawn.node`);
+const isWin = process.platform === 'win32';
+const dawnNodePath = isWin
+  ? `${process.cwd()}/third_party/dawn/out/cmake-release/gen/node/NapiSymbols.def`.replaceAll('\\', '/')
+  : `${process.cwd()}/third_party/dawn/out/cmake-release/dawn.node`;
+
+const { create, globals } = require(dawnNodePath);
 
 Object.assign(globalThis, globals);
 const navigator = { gpu: create([]) };
