@@ -1,0 +1,30 @@
+{
+  "name": "webgpu",
+  "version": "0.0.6",
+  "description": "WebGPU for node",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "node build/build.js",
+    "publish": "node build/publish.js",
+    "test": "mocha --require test/fixture.js",
+    "update": "node build/update.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greggman/node-webgpu.git"
+  },
+  "keywords": [
+    "WGSL",
+    "WebGPU"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/greggman/node-webgpu/issues"
+  },
+  "homepage": "https://github.com/greggman/node-webgpu#readme",
+  "devDependencies": {
+    "mocha": "^11.0.1"
+  }
+}
