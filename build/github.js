@@ -11,6 +11,10 @@ async function fetchGithub(url, params) {
       'X-GitHub-Api-Version': '2022-11-28',
     },
   });
+  if (res.status !== 200) {
+    const text = await res.text();
+    throw new Error(`url: ${url}\n${text}`);
+  }
   return await res.json();
 }
 
