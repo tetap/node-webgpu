@@ -8,13 +8,19 @@ import {
 } from './utils.js'
 
 async function downloadFileFromZip(url, filepath) {
+  console.log('downloading:', url);
   const res = await fetch(url);
+  if (res.status !== 200) {
+    const text = await res.text();
+    throw new Error(`url: ${url}\n${text}`);
+  }
+  console.log(res.status, res.bytes);
   const zipData = await res.arrayBuffer();
   const {entries} = await unzip(zipData);
   return Promise.all(Object.entries(entries).map(async ([name, entry]) => {
     const data = await entry.arrayBuffer();
     const filename = path.join(filepath, name);
-    console.log('downloaded:', filename);
+    console.log('extracted:', filename);
     fs.mkdirSync(filepath, {recursive: true});
     fs.writeFileSync(filename, new Uint8Array(data));
     return filename;
@@ -90,6 +96,8 @@ const data = {
     }
   ]
 }
+
+https://github.com/greggman/node-webgpu/actions/runs/12618872732/artifacts/2387232364
 */
 
 const [owner, repo] = args.repo.split('/');
@@ -101,5 +109,8 @@ const data = await github.getRunArtifacts({
 const filenames = await Promise.all(
   data.artifacts
     .filter(({name}) => name?.endsWith('.node'))
-    .map(({archive_download_url}) => downloadFileFromZip(archive_download_url, 'dist'))
+    .map(({id}) => {
+      const url = `https://github.com/${owner}/${repo}/actions/runs/${args.run_id}/artifacts/${id}`;
+      return downloadFileFromZip(url, 'dist');
+    })
 );

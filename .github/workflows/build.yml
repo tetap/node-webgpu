@@ -78,7 +78,7 @@ jobs:
         if: startsWith(matrix.config.os, 'windows')
         uses: GuillaumeFalourd/setup-windows10-sdk-action@v2
         with:
-          sdk-version: 26100
+          s dk-version: 26100
 
       - name: Install dependencies on ubuntu
         if: startsWith(matrix.config.name, 'Ubuntu')
@@ -133,8 +133,13 @@ jobs:
         echo github.event.action: ${{ github.event.action }}
         echo github.event_name: ${{ github.event_name }}
 
+    - name: Download artifacts
+      uses: actions/download-artifact@v4
+      with:
+        path: dist
+
     - name: Build
       shell: bash
       run: |
+        ls -R
         npm ci
-        node build/download-run-artifacts.js "--repo=${{ github.repository }}" "--run_id=${{ github.run_id }}"
