@@ -34,6 +34,11 @@ jobs:
             os: macos-latest,
             artifact: darwin-arm64,
           }
+        - {
+            name: "macOS Intel?",
+            os: macos-13,
+            artifact: darwin-x64,
+          }
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -76,7 +81,7 @@ jobs:
           sdk-version: 26100
 
       - name: Install dependencies on ubuntu
-        if: startsWith(matrix.config.name, 'Ubuntu_Latest_GCC')
+        if: startsWith(matrix.config.name, 'Ubuntu')
         run: |
           sudo apt-get update
           sudo apt-get install cmake libxrandr-dev libxinerama-dev libxcursor-dev mesa-common-dev libx11-xcb-dev pkg-config nodejs npm
