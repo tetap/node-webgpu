@@ -24,7 +24,12 @@
     "url": "https://github.com/greggman/node-webgpu/issues"
   },
   "homepage": "https://github.com/greggman/node-webgpu#readme",
+  "files": [
+    "dist/**/*",
+    "index.js"
+  ],
   "devDependencies": {
-    "mocha": "^11.0.1"
+    "mocha": "^11.0.1",
+    "unzipit": "^1.4.3"
   }
 }

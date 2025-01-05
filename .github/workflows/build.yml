@@ -113,3 +113,28 @@ jobs:
         with:
           files: dist/*.dawn.node
 
+  package:
+    needs: build
+      name: package
+      runs-on: ubuntu-latest
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Print env
+        run: |
+          echo github.event.action: ${{ github.event.action }}
+          echo github.event_name: ${{ github.event_name }}
+
+      - name: Build
+        shell: download-and-package
+        run: |
+          npm ci
+          node build/download-run-artifacts.js "--repo=${{ github.repository }}" "--run_id=${{ github.run_id }}""
