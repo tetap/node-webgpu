@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import { PNG } from 'pngjs';
-import { create, globals } from 'node-webgpu';
+import { create, globals } from 'webgpu';
 
 Object.assign(globalThis, globals);
 const navigator = { gpu: create([]) };

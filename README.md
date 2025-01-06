@@ -1,4 +1,4 @@
-# node-webgpu - dawn.node
+# webgpu - dawn.node
 
 Provides webgpu to node
 
@@ -9,13 +9,13 @@ it on npm.
 ## Usage
 
 ```
-npm install --save node-webgpu
+npm install --save webgpu
 ```
 
 Then in your code
 
 ```js
-import { create, globals } from 'node-webgpu';
+import { create, globals } from 'webgpu';
 
 Object.assign(globalThis, globals);
 const navigator = { gpu: create([]) };
