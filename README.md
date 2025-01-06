@@ -24,7 +24,10 @@ globalThis.navigator = { gpu: create([]) };
 
 // do some webgpu
 const device = await(await navigator.gpu.requestAdapter()).requestDevice();
+...
 ```
+
+see [example]()
 
 You can pass dawn options in `create`
 
@@ -93,6 +96,8 @@ I've tested with Visual Studio Community Edition 2022
 Further you must have [cmake installed](https://cmake.org/download/)
 and either in your path or at it's standard place of `C:\Program Files\CMake`
 
+You must have `go` installed. Get it at https://go.dev/
+
 And you must have `node.js` installed, at least version 18. 
 I recommend using [nvm-windows](https://github.com/coreybutler/nvm-windows) to install it
 as it makes it easy to switch version
@@ -104,6 +109,8 @@ XCode installed and its command line tools
 
 Further you must have [cmake installed](https://cmake.org/download/)
 and either in your path or at it's standard place of `/Applications/CMake.app`
+
+You must have `go` installed. Get it at https://go.dev/
 
 And you must have `node.js` installed, at least version 18. 
 I recommend using [nvm](https://github.com/nvm-sh/nvm) to install it
@@ -117,6 +124,8 @@ the following dependencies
 ```sh
 sudo apt-get install cmake libxrandr-dev libxinerama-dev libxcursor-dev mesa-common-dev libx11-xcb-dev pkg-config nodejs npm
 ```
+
+You must have `go` installed. Get it at https://go.dev/
 
 And you must have `node.js` installed, at least version 18. 
 I recommend using [nvm](https://github.com/nvm-sh/nvm) to install it
