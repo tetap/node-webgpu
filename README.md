@@ -27,7 +27,7 @@ const device = await(await navigator.gpu.requestAdapter()).requestDevice();
 ...
 ```
 
-see [example]()
+see [example](https://github.com/greggman/node-webgpu/tree/main/example)
 
 You can pass dawn options in `create`
 
