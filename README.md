@@ -81,11 +81,24 @@ looked into it.
 What you can do is render to textures and then read them back. You can also run compute shaders
 and read their results. See the example linked above.
 
-## Bugs / Issue
+## Bugs / Issues
 
 This repo just publishes `dawn.node` from the dawn project [here](https://dawn.googlesource.com/dawn/+/refs/heads/main/src/dawn/node/).
 Bugs related to dawn, WebGPU should be filed in the in the
 [chromium issue tracker](https://crbug.com/dawn)
+
+## Running the CTS
+
+```
+npm run build
+cd third_party/dawn/third_party/webgpu-cts
+npm ci
+cd ../..
+cp third_party/webgpu-cts/package.json ..
+./tools/run run-cts --bin=out/cmake-release 'webgpu:*'
+```
+
+Note: this is no different than running the CTS in dawn itself.
 
 ## Updating
 

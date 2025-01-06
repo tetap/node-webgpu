@@ -1,6 +1,7 @@
 *.pyc
 .DS_Store
 node_modules
+third_party/package.json
 
 # --cut-here--
 dist
