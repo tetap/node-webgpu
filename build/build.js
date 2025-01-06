@@ -47,7 +47,7 @@ async function buildDawnNode() {
 }
 
 async function copyResult(filepath, target) {
-  const srcFilename = path.join(...[filepath, ...addElemIf(isWin, 'Release'), 'dawn.node']);
+  const srcFilename = path.join(...[filepath, ...addElemIf(isWin, 'Debug'), 'dawn.node']);
   const dstFilename = path.join('dist', `${target}.dawn.node`);
   fs.mkdirSync(path.dirname(dstFilename), {recursive: true});
   fs.copyFileSync(srcFilename, dstFilename);
