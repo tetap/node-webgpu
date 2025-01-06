@@ -32,7 +32,7 @@ see [example](https://github.com/greggman/node-webgpu/tree/main/example)
 You can pass dawn options in `create`
 
 ```js
-let navigator = {
+globalThis.navigator = {
   gpu: create([
     "enable-dawn-features=allow_unsafe_apis,dump_shaders,disable_symbol_renaming",
   ]),
