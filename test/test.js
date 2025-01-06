@@ -11,5 +11,6 @@ mocha.addFile('./test/tests/basic-tests.js');
 
 await mocha.loadFilesAsync();
 mocha.run(failures => {
+  delete globalThis.navigator;
   process.exit(failures);
 });

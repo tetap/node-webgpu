@@ -3,7 +3,7 @@ import { PNG } from 'pngjs';
 import { create, globals } from 'node-webgpu';
 
 Object.assign(globalThis, globals);
-globalThis.navigator = { gpu: create([]) };
+const navigator = { gpu: create([]) };
 
 const adapter = await navigator.gpu?.requestAdapter();
 const device = await adapter?.requestDevice();
@@ -89,4 +89,4 @@ for (let y = 0; y < texture.height; y++) {
 // Write the PNG to a file
 fs.writeFileSync('output.png', PNG.sync.write(png, {colorType: 6}));
 console.log('PNG file has been saved as output.png');
-process.exit(0);
+

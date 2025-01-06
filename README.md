@@ -18,7 +18,7 @@ Then in your code
 import { create, globals } from 'node-webgpu';
 
 Object.assign(globalThis, globals);
-globalThis.navigator = { gpu: create([]) };
+const navigator = { gpu: create([]) };
 
 ...
 
@@ -32,7 +32,7 @@ see [example](https://github.com/greggman/node-webgpu/tree/main/example)
 You can pass dawn options in `create`
 
 ```js
-globalThis.navigator = {
+const navigator = {
   gpu: create([
     "enable-dawn-features=allow_unsafe_apis,dump_shaders,disable_symbol_renaming",
   ]),
@@ -45,8 +45,29 @@ The available options are listed [here](https://dawn.googlesource.com/dawn/+/ref
 
 ## Notes
 
+### Lifetime
+
+The `dawn.node` implementation exists as long as the `navigator` variable
+in the examples is in scope, or rather, as long as there is a reference to
+the object returned by `create`. As such, if you assign it to a global
+variable like this
+
+```js
+globalThis.navigator = { gpu: create([]) };
+```
+
+node will not exit because it's still running GPU code in the background.
+You can fix that by removing the reference.
+
+```js
+delete globalThis.navigator
+```
+
+See: https://issues.chromium.org/issues/387965810
+
+### What to use this for
 This package provides a WebGPU implementation it node. That said, if you are making a webpage
-and are considering using this for testing, you'd probably be better off using puppeteer. You can
+and are considering using this for testing, you'd probably be better off using [puppeteer](https://pptr.dev/). You can
 find an example of using puppeteer for testing WebGPU in [this repo](https://github.com/greggman/webgpu-debug-helper).
 
 This package is for WebGPU in node. It provides WebGPU in node. But, it does not not provide integration
@@ -58,9 +79,13 @@ I suspect you could provide many of those with polyfills without changing this r
 looked into it.
 
 What you can do is render to textures and then read them back. You can also run compute shaders
-and read their results.
+and read their results. See the example linked above.
 
-## Bugs
+## Bugs / Issue
+
+This repo just publishes `dawn.node` from the dawn project [here](https://dawn.googlesource.com/dawn/+/refs/heads/main/src/dawn/node/).
+Bugs related to dawn, WebGPU should be filed in the in the
+[chromium issue tracker](https://crbug.com/dawn)
 
 ## Updating
 
