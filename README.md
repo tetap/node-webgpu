@@ -3,7 +3,8 @@
 Provides webgpu to node
 
 [Dawn](https://dawn.googlesource.com/dawn) is an implementation of [WebGPU](https://gpuweb.github.io/gpuweb/).
-It includes a node plugin and this repo builds that plugin.
+It includes a node plugin and this repo builds that plugin and publishes
+it on npm.
 
 ## Usage
 

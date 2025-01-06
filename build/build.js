@@ -17,19 +17,6 @@ prependPathIfItExists(depotToolsPath);
 appendPathIfItExists('/Applications/CMake.app/Contents/bin');
 appendPathIfItExists('C:\\Program Files\\CMake\\bin');
 
-function fixupPackageJson(filename) {
-  const pkg = JSON.parse(fs.readFileSync('package.json', {encoding: 'utf8'}));
-  const vsPkg = JSON.parse(fs.readFileSync(filename, {encoding: 'utf8'}));
-  const newPkg = {
-    ...pkg,
-    ...vsPkg,
-    type: "commonjs",
-    scripts: {},
-    version: pkg.version,
-  };
-  fs.writeFileSync(filename, JSON.stringify(newPkg, null, 2));
-}
-
 async function buildDawnNode() {
   try {
     process.env.DEPOT_TOOLS_WIN_TOOLCHAIN = '0'
@@ -53,20 +40,6 @@ async function buildDawnNode() {
     } else {
       await execute('ninja', ['dawn.node']);
     }
-  } finally {
-    process.chdir(cwd);
-  }
-}
-
-async function packageExtension(target) {
-  try {
-    process.chdir(buildPath);
-    await execute('npm', ['install']);
-    await execute(`${cwd}/node_modules/.bin/vsce`, [
-      'package',
-      '--allow-star-activation',
-      '--target', target,
-    ]);
   } finally {
     process.chdir(cwd);
   }
