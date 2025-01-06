@@ -41,7 +41,7 @@ globalThis.navigator = {
 
 There is both `enable-dawn-features=comma,separated,toggles` and `disable-dawn-features=comma,separated,toggles`.
 
-The available options are listed [here](https://dawn.googlesource.com/dawn/+/refs/heads/chromium-gpu-experimental/src/dawn_native/Toggles.cpp)
+The available options are listed [here](https://dawn.googlesource.com/dawn/+/refs/heads/main/src/dawn/native/Toggles.cpp)
 
 ## Notes
 
