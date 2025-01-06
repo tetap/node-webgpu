@@ -1,6 +1,6 @@
 {
   "name": "node-webgpu",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "WebGPU for node",
   "main": "index.js",
   "type": "module",
