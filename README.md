@@ -2,9 +2,9 @@
 
 Provides webgpu to node
 
-[Dawn](https://dawn.googlesource.com/dawn) is an implementation of [WebGPU](https://gpuweb.github.io/gpuweb/).
-It includes a node plugin and this repo builds that plugin and publishes
-it on npm.
+[Dawn](https://dawn.googlesource.com/dawn) is an implementation of 
+[WebGPU](https://gpuweb.github.io/gpuweb/). It includes a node plugin
+and this repo builds that plugin and publishes it on npm.
 
 ## Usage
 
@@ -65,7 +65,13 @@ delete globalThis.navigator
 
 See: https://issues.chromium.org/issues/387965810
 
+### Software GPU
+
+Some options for running with a software based Vulkan implementation such has lavapipe are mentioned
+in [the dawn.node readme](https://dawn.googlesource.com/dawn/+/refs/heads/main/src/dawn/node/)
+
 ### What to use this for
+
 This package provides a WebGPU implementation it node. That said, if you are making a webpage
 and are considering using this for testing, you'd probably be better off using [puppeteer](https://pptr.dev/). You can
 find an example of using puppeteer for testing WebGPU in [this repo](https://github.com/greggman/webgpu-debug-helper).
@@ -172,3 +178,9 @@ as it makes it easy to switch versions.
 ## License
 
 MIT: https://dawn.googlesource.com/dawn/+/HEAD/LICENSE
+
+## Thanks!
+
+Special thanks to Felix Maier who originally published a dawn plugin for node
+[here](https://github.com/maierfelix/webgpu/) and who graciously let me
+publish this repo under the same npm package.
