@@ -1,6 +1,3 @@
-import path from 'path';
-import fs from 'fs';
-
 import {execute} from './execute.js';
     
 const cwd = process.cwd(); 

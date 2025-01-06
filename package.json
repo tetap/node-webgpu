@@ -1,12 +1,11 @@
 {
-  "name": "webgpu",
-  "version": "0.0.6",
+  "name": "node-webgpu",
+  "version": "0.0.1",
   "description": "WebGPU for node",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "build": "node build/build.js",
-    "publish": "node build/publish.js",
     "test": "node test/test.js",
     "update": "node build/update.js"
   },
@@ -29,7 +28,6 @@
     "index.js"
   ],
   "devDependencies": {
-    "mocha": "^11.0.1",
-    "unzipit": "^1.4.3"
+    "mocha": "^11.0.1"
   }
 }

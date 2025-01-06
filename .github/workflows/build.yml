@@ -115,8 +115,9 @@ jobs:
 
   package:
     needs: build
-    name: package
+    name: package-and-publish
     runs-on: ubuntu-latest
+    if: github.event_name == 'release' 
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -137,9 +138,20 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         path: dist
+        merge-multiple: true
 
     - name: Build
       shell: bash
       run: |
-        ls -R
         npm ci
+        node build/prep-for-publish.js
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: .
+
+    - name: Publish to NPM 📖
+      uses: JS-DevTools/npm-publish@v2
+      with:
+        token: ${{ secrets.NPM_TOKEN }}

@@ -1,4 +1,7 @@
 *.pyc
 .DS_Store
 node_modules
+
+# --cut-here--
 dist
+# --cut-here--

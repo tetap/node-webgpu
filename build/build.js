@@ -86,9 +86,6 @@ async function main() {
     console.log('building for:', target);
     await execute('git', ['submodule', 'update', '--init']);
     await buildDawnNode();
-    //fixupPackageJson(`${buildPath}/package.json`);
-    //fs.copyFileSync('third_party/dawn/LICENSE', `${buildPath}/LICENSE`);
-    //await packageExtension(target);
     const packageName = await copyResult(buildPath, target);
     console.log('created:', packageName);
   } catch (e) {
