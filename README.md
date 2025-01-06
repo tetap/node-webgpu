@@ -40,7 +40,9 @@ looked into it.
 What you can do is render to textures and then read them back. You can also run compute shaders
 and read their results.
 
-# Updating
+## Bugs
+
+## Updating
 
 This updates to the latest dawn and depot_tools
 
@@ -49,12 +51,12 @@ npm ci
 npm run update
 ```
 
-# Building on all supported platforms
+## Building on all supported platforms
 
 Push a new version. Check the github actions. You should see build artifacts
 added to the bottom of the latest action run. 
 
-# Building
+## Building
 
 This builds for the local OS (win64,macOS-intel,macOS-arm,linux)
 
@@ -63,9 +65,9 @@ npm ci
 npm run build
 ```
 
-## Prerequisites
+### Prerequisites
 
-### Windows
+#### Windows
 
 Before running the build script above you must have
 Visual Studio C++ installed and have run the `vcvars64.bat` file.
@@ -78,7 +80,7 @@ And you must have `node.js` installed, at least version 18.
 I recommend using [nvm-windows](https://github.com/coreybutler/nvm-windows) to install it
 as it makes it easy to switch version
 
-### MacOS
+#### MacOS
 
 Before running the build script above you must have
 XCode installed and its command line tools
@@ -90,7 +92,7 @@ And you must have `node.js` installed, at least version 18.
 I recommend using [nvm](https://github.com/nvm-sh/nvm) to install it
 as it makes it easy to switch versions.
 
-### Linux (Ubuntu)
+#### Linux (Ubuntu)
 
 Before running the build script above you need to install
 the following dependencies
@@ -102,3 +104,7 @@ sudo apt-get install cmake libxrandr-dev libxinerama-dev libxcursor-dev mesa-com
 And you must have `node.js` installed, at least version 18. 
 I recommend using [nvm](https://github.com/nvm-sh/nvm) to install it
 as it makes it easy to switch versions.
+
+## License
+
+MIT: https://dawn.googlesource.com/dawn/+/HEAD/LICENSE

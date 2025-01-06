@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 
 function fixupGitignore() {
   const s = fs.readFileSync('.gitignore', {encoding: 'utf8'});
