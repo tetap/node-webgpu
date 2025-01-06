@@ -21,7 +21,24 @@ Object.assign(globalThis, globals);
 globalThis.navigator = { gpu: create([]) };
 
 ...
+
+// do some webgpu
+const device = await(await navigator.gpu.requestAdapter()).requestDevice();
 ```
+
+You can pass dawn options in `create`
+
+```js
+let navigator = {
+  gpu: create([
+    "enable-dawn-features=allow_unsafe_apis,dump_shaders,disable_symbol_renaming",
+  ]),
+};
+```
+
+There is both `enable-dawn-features=comma,separated,toggles` and `disable-dawn-features=comma,separated,toggles`.
+
+The available options are listed [here](https://dawn.googlesource.com/dawn/+/refs/heads/chromium-gpu-experimental/src/dawn_native/Toggles.cpp)
 
 ## Notes
 
