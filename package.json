@@ -28,6 +28,7 @@
     "index.js"
   ],
   "devDependencies": {
+    "debug": "^4.4.0",
     "mocha": "^11.0.1"
   }
 }
