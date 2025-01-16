@@ -30,6 +30,11 @@ jobs:
             artifact: linux-x64,
           }
         - {
+            name: "Ubuntu_Arm",
+            os: ubuntu-24.04-arm,
+            artifact: linux-arm,
+          }
+        - {
             name: "macOS Latest Clang",
             os: macos-latest,
             artifact: darwin-arm64,
