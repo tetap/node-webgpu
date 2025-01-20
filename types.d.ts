@@ -1,2 +1,2 @@
 export * from '@webgpu/types';
-declare function create(options: string[]): GPU;
+export declare function create(options: string[]): GPU;
