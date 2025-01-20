@@ -4,6 +4,7 @@
   "description": "WebGPU for node",
   "main": "index.js",
   "type": "module",
+  "types": "types.d.ts",
   "scripts": {
     "build": "node build/build.js",
     "test": "node test/test.js",
@@ -25,10 +26,14 @@
   "homepage": "https://github.com/greggman/node-webgpu#readme",
   "files": [
     "dist/**/*",
-    "index.js"
+    "index.js",
+    "types.d.ts"
   ],
   "devDependencies": {
     "debug": "^4.4.0",
     "mocha": "^11.0.1"
+  },
+  "dependencies": {
+    "@webgpu/types": "^0.1.53"
   }
 }
