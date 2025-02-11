@@ -1,16 +1,21 @@
-import Mocha from 'mocha';
+import fs from 'node:fs';
+import { execute } from '../build/execute.js';
 
-import { create, globals } from '../index.js';
+const cwd = process.cwd();
 
-Object.assign(globalThis, globals);
-globalThis.navigator = { gpu: create([]) };
+await execute('node', ['test/functional-tests.js']);
 
-const mocha = new Mocha({});
+const tsTestsDir = 'test/ts-tests';
+const tests = fs.readdirSync(tsTestsDir, { withFileTypes: true })
+  .filter(t => t.isDirectory())
+  .map(t => `${tsTestsDir}/${t.name}`);
 
-mocha.addFile('./test/tests/basic-tests.js');
+for (const test of tests) {
+  console.log('testing:', test);
+  process.chdir(test);
+  fs.rmSync('node_modules', { recursive: true, force: true });
+  await execute('npm', ['i', '--no-package-lock']);
+  await execute('npm', ['test']);
+  process.chdir(cwd);
+}
 
-await mocha.loadFilesAsync();
-mocha.run(failures => {
-  delete globalThis.navigator;
-  process.exit(failures);
-});
