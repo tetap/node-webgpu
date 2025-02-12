@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/greggman/node-webgpu.git"
+    "url": "git+https://github.com/dawn-gpu/node-webgpu.git"
   },
   "keywords": [
     "WGSL",
@@ -21,9 +21,9 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/greggman/node-webgpu/issues"
+    "url": "https://github.com/dawn-gpu/node-webgpu/issues"
   },
-  "homepage": "https://github.com/greggman/node-webgpu#readme",
+  "homepage": "https://github.com/dawn-gpu/node-webgpu#readme",
   "files": [
     "dist/**/*",
     "index.js",

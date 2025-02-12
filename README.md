@@ -27,7 +27,7 @@ const device = await(await navigator.gpu.requestAdapter()).requestDevice();
 ...
 ```
 
-see [example](https://github.com/greggman/node-webgpu/tree/main/example)
+see [example](https://github.com/dawn-gpu/node-webgpu/tree/main/example)
 
 You can pass dawn options in `create`
 
@@ -74,7 +74,7 @@ in [the dawn.node readme](https://dawn.googlesource.com/dawn/+/refs/heads/main/s
 
 This package provides a WebGPU implementation it node. That said, if you are making a webpage
 and are considering using this for testing, you'd probably be better off using [puppeteer](https://pptr.dev/). You can
-find an example of using puppeteer for testing WebGPU in [this repo](https://github.com/greggman/webgpu-debug-helper).
+find an example of using puppeteer for testing WebGPU in [this repo](https://github.com/dawn-gpu/webgpu-debug-helper).
 
 This package is for WebGPU in node. It provides WebGPU in node. But, it does not not provide integration
 with the web platform. For example, importing video via `HTMLVideoElement` or `VideoFrame`. It doesn't
