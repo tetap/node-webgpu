@@ -7,6 +7,7 @@
   "types": "types.d.ts",
   "scripts": {
     "build": "node build/build.js",
+    "compile": "node build/build.js --compile-only",
     "test": "node test/test.js",
     "update": "node build/update.js"
   },
