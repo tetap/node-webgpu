@@ -8,6 +8,7 @@ globalThis.navigator = { gpu: create([]) };
 const mocha = new Mocha({});
 
 mocha.addFile('./test/tests/basic-tests.js');
+mocha.addFile('./test/tests/reference-count-tests.js');
 
 await mocha.loadFilesAsync();
 mocha.run(failures => {

@@ -1,20 +1,7 @@
 
+import { assert } from 'chai';
 
-function assert(cond, msg = '') {
-  if (!cond) {
-    throw Error(msg);
-  }
-}
-
-Promise.withResolvers = Promise.withResolvers ?? function() {
-  const o = {};
-  o.promise = new Promise((resolve, reject) => {
-    Object.assign(o, { resolve, reject } );
-  });
-  return o;
-};
-
-describe('node-webgpu', () => {
+describe('basic tests', () => {
   it('creates a device', async () => {
     const device = await(await navigator.gpu.requestAdapter()).requestDevice();
     assert(!!device, 'got device');
@@ -23,6 +10,7 @@ describe('node-webgpu', () => {
     device.destroy();
   });
 
+  /* MAINTENANCE_TODO: enable ths test once dawn.node handles this
   it('can attach a uncapturederror listener', async () => {
     const device = await(await navigator.gpu.requestAdapter()).requestDevice();
     assert(!!device, 'got device');
@@ -40,5 +28,6 @@ describe('node-webgpu', () => {
     tex.destroy();
     device.destroy();
   });
+  */
 });
 
