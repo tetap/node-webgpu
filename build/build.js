@@ -80,6 +80,7 @@ async function main() {
     const target = `${process.platform}-${process.arch}`;
     console.log('building for:', target);
     if (!compileOnly) {
+      await execute('git', ['submodule', 'update', '--init']);
       await createProject();
     }
     await compile();
