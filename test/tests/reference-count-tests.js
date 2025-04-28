@@ -19,8 +19,6 @@ describe('reference count tests', () => {
   it('correctly handles GC with device.features', async function() {
     this.timeout(20000);
     const adapter = await navigator.gpu.requestAdapter();
-    const device = await adapter?.requestDevice();
-    assert(!!device, 'got device');
 
     const [iterWeakRef, featuresWeakRef] = await (async () => {
       const [iter, deviceWeakRef, featuresWeakRef] = await (async () => {
@@ -41,5 +39,6 @@ describe('reference count tests', () => {
     await waitForGC(featuresWeakRef, 'features');
     // dawn.node will likely crash before this if this is not working.
   });
+
 
 });
