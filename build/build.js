@@ -10,9 +10,6 @@ const kDepotToolsPath = path.join(kCwd, 'third_party', 'depot_tools');
 const kDawnPath = `${kCwd}/third_party/dawn`;
 const kOutDir = 'out/cmake-release';
 const kBuildPath = `${kDawnPath}/${kOutDir}`
-console.log('kCwd:      ', kCwd);
-console.log('kDawnPath: ', kDawnPath);
-console.log('kBuildPath:', kBuildPath);
 
 const isMac = process.platform === 'darwin';
 const isWin = process.platform === 'win32';
