@@ -2,7 +2,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 
 import {execute} from './execute.js';
-import {addElemIf, appendPathIfItExists, prependPathIfItExists} from './utils.js';
+import {addElemIf, appendPathIfItExists, exists, prependPathIfItExists} from './utils.js';
 
 //const __dirname = dirname(fileURLToPath(import.meta.url));
 const cwd = process.cwd(); 
@@ -24,8 +24,12 @@ async function buildDawnNode() {
     fs.copyFileSync('scripts/standalone-with-node.gclient', '.gclient');
     await execute('gclient', ['metrics', '--opt-out']);
     await execute('gclient', ['sync']);
-    fs.mkdirSync('out/cmake-release', {recursive: true});
-    process.chdir('out/cmake-release');
+    const outDir = 'out/cmake-release';
+    if (exists(outDir)) {
+      fs.rmSync(outDir, {recursive: true});
+    }
+    fs.mkdirSync(outDir, {recursive: true});
+    process.chdir(outDir);
 
     await execute('cmake', [
       dawnPath,
