@@ -43,6 +43,51 @@ There is both `enable-dawn-features=comma,separated,toggles` and `disable-dawn-f
 
 The available options are listed [here](https://dawn.googlesource.com/dawn/+/refs/heads/main/src/dawn/native/Toggles.cpp)
 
+There are also a few dawn node specific options
+
+* `backend`
+
+  Let's you specify the backend like 'null', 'webgpu', 'd3d11', 'd3d12', 'metal', 'vulkan', 'opengl', 'opengles'
+
+  Example:
+
+  ```js
+  const navigator = { gpu: create(['backend=opengl']) };
+  ```
+
+  Passing in a non-existent backend will print out the list of backends
+
+* `adapter`
+
+  Let's you specify which adapter to use. To get a list of adapters
+  pass in a non-existent adapter name.
+
+  ```js
+  const navigator = { gpu: create(['adapter=foo']) };
+  ```
+
+  prints something like
+
+  ```
+  Error: no suitable backends found
+  Available adapters:
+   * backend: 'metal', name: 'Apple M1 Max'
+  ```
+
+  At which point you can use something like
+
+  ```js
+  const navigator = { gpu: create(['adapter=Apple M1 Max']) };
+  ```
+
+Note: Normally you select a GPU by using the WebGPU API
+
+```js
+const adapter = navigator.gpu.requestAdapter({
+  powerPreference: 'high-performance', // or 'low-power'
+});
+```
+
 ## Notes
 
 ### Lifetime
