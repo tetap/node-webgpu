@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import path from 'node:path';
 
 import {execute} from './execute.js';
@@ -17,6 +18,7 @@ async function main() {
 
     process.chdir('third_party/dawn');
     await execute('git', ['pull', 'origin', 'main']);
+    fs.copyFileSync('scripts/standalone-with-node.gclient', '.gclient');
     await execute('gclient', ['sync', '-D']);
     process.chdir(cwd);
 
