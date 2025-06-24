@@ -220,6 +220,10 @@ And you must have `node.js` installed, at least version 18.
 I recommend using [nvm](https://github.com/nvm-sh/nvm) to install it
 as it makes it easy to switch versions.
 
+## Publishing
+
+See [PUBLISHING.md](PUBLISHNG.md).
+
 ## License
 
 MIT: https://dawn.googlesource.com/dawn/+/HEAD/LICENSE
