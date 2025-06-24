@@ -222,7 +222,7 @@ as it makes it easy to switch versions.
 
 ## Publishing
 
-See [PUBLISHING.md](PUBLISHNG.md).
+See [PUBLISHING.md](PUBLISHING.md).
 
 ## License
 
