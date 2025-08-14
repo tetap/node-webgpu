@@ -1,6 +1,6 @@
 {
   "name": "webgpu-electron",
-  "version": "0.3.0",
+  "version": "0.6.0",
   "description": "WebGPU for node electron",
   "main": "index.js",
   "type": "module",
