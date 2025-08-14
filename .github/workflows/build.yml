@@ -14,6 +14,9 @@ jobs:
   build:
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
+    env:
+      # 仅在macOS环境下设置此变量
+      MACOSX_DEPLOYMENT_TARGET: ${{ startsWith(matrix.config.os, 'macos') && '11.0' || '' }}
     strategy:
       fail-fast: false
       matrix:
@@ -31,14 +34,12 @@ jobs:
         - {
             name: "macOS Latest Clang",
             os: macos-latest,
-            artifact: darwin-arm64,
-            env: { MACOSX_DEPLOYMENT_TARGET: "11.0" } 
+            artifact: darwin-arm64
           }
         - {
             name: "macOS Intel?",
             os: macos-13,
-            artifact: darwin-x64,
-            env: { MACOSX_DEPLOYMENT_TARGET: "11.0" } 
+            artifact: darwin-x64
           }
 
     steps:
@@ -98,8 +99,6 @@ jobs:
           
       - name: Build
         shell: bash
-        env:
-          ${{ toJSON(matrix.config.env) }}
         run: |
           npm ci
           echo "${{ github.event_name }}"
@@ -141,6 +140,7 @@ jobs:
         echo github.event_name: ${{ github.event_name }}
         echo github.ref: ${{ github.ref }}
         echo github.ref_type: ${{ github.ref_type }}
+        echo MACOSX_DEPLOYMENT_TARGET: $MACOSX_DEPLOYMENT_TARGET
 
     - name: Download artifacts
       uses: actions/download-artifact@v4
