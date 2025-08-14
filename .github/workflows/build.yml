@@ -16,7 +16,7 @@ jobs:
     runs-on: ${{ matrix.config.os }}
     env:
       # 仅在macOS环境下设置此变量
-      MACOSX_DEPLOYMENT_TARGET: ${{ startsWith(matrix.config.os, 'macos') && '11.0' || '' }}
+      MACOSX_DEPLOYMENT_TARGET: ${{ startsWith(matrix.config.os, 'macos') && '13.0' || '' }}
     strategy:
       fail-fast: false
       matrix:
