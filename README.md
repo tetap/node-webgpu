@@ -1,3 +1,7 @@
+# fix electron error 
+[BUG](https://groups.google.com/g/dawn-graphics/c/VXnvJcYwOg0/m/Tfm0B13_CgAJ?utm_medium=email&utm_source=footer) Support for runtimes without external buffers
+
+
 # webgpu - dawn.node
 
 Provides webgpu to node
