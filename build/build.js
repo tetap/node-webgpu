@@ -88,7 +88,6 @@ async function main() {
     console.log("building for:", target);
     if (!compileOnly) {
       await execute("git", ["submodule", "update", "--init"]);
-      await execute("git", ["submodule", "update", "--remote", "third_party/dawn"]);
       await createProject();
     }
     await compile();
