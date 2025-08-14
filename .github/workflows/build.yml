@@ -6,8 +6,6 @@ permissions:
 # Controls when the action will run. Triggers the workflow on push
 on:
   push:
-    branches:
-      - '**' # Triggers on pushes to any branch
     tags:
       - 'v*' # Triggers on pushes of tags like v1.0, v20.15.10
   pull_request:
