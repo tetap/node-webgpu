@@ -1,6 +1,6 @@
 [submodule "dawn"]
 	path = third_party/dawn
-	url = git@github.com:tetap/dawn.git
+	url = https://github.com/tetap/dawn.git
 [submodule "depot_tools"]
 	path = third_party/depot_tools
 	url = https://chromium.googlesource.com/chromium/tools/depot_tools.git
