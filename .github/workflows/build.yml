@@ -64,6 +64,7 @@ jobs:
           echo github.event.action: ${{ github.event.action }}
           echo github.event_name: ${{ github.event_name }}
           echo github.ref: ${{ github.ref }}
+          echo MACOSX_DEPLOYMENT_TARGET: $MACOSX_DEPLOYMENT_TARGET
 
       - name: Install dependencies on windows
         if: startsWith(matrix.config.os, 'windows')
