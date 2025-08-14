@@ -1,9 +1,16 @@
 {
   "name": "webgpu-electron",
-  "version": "0.6.0",
+  "version": "0.8.0",
   "description": "WebGPU for node electron",
-  "main": "index.js",
-  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./types.d.ts",
+      "import": "./index.js",
+      "require": "./index.cjs"
+    }
+  },
+  "main": "index.cjs",
+  "module": "index.js",
   "types": "types.d.ts",
   "scripts": {
     "build": "node build/build.js",
@@ -28,6 +35,7 @@
   "files": [
     "dist/**/*",
     "index.js",
+    "index.cjs",
     "types.d.ts"
   ],
   "devDependencies": {
