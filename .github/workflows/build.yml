@@ -30,13 +30,15 @@ jobs:
           }
         - {
             name: "macOS Latest Clang",
-            os: macos-14,
+            os: macos-latest,
             artifact: darwin-arm64,
+            env: { MACOSX_DEPLOYMENT_TARGET: "11.0" } 
           }
         - {
             name: "macOS Intel?",
             os: macos-13,
             artifact: darwin-x64,
+            env: { MACOSX_DEPLOYMENT_TARGET: "11.0" } 
           }
 
     steps:
@@ -96,6 +98,8 @@ jobs:
           
       - name: Build
         shell: bash
+        env:
+          ${{ toJSON(matrix.config.env) }}
         run: |
           npm ci
           echo "${{ github.event_name }}"
