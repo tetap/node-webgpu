@@ -61,7 +61,7 @@ async function createProject() {
       ...addElemIf(!isWin, "-GNinja"),
       "-DDAWN_BUILD_NODE_BINDINGS=1",
       "-DDAWN_USE_X11=OFF",
-      `-DCMAKE_BUILD_TYPE=${process.env.CMAKE_BUILD_TYPE ?? "Release"}`,
+      `-DCMAKE_BUILD_TYPE=${"Release"}`,
       ...addElemIf(isWin, "-DCMAKE_SYSTEM_VERSION=10.0.26100.0"),
       ...addElemIf(
         isMac,
